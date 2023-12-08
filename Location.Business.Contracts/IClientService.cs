@@ -1,16 +1,16 @@
-﻿using Location.Business.Contracts.Clients;
+﻿using Location.Entities;
 
 namespace Location.Business.Contracts;
 
 public interface IClientService
 {
-    Task<ClientDto> FindClientById(int id);
+	Task<Client> GetById(int id);
 
-    Task<IEnumerable<ClientDto>> GetAllClients();
+	Task<IEnumerable<Client>> GetAll();
 
-    Task<int> Create(CreateClientDto client);
+	Task<int> Create(Client client);
 
-    Task<int> Update(UpdateClientDto client);
+	Task<int> Update(Client client);
 
-    Task<int> Delete(int id);
+	Task<int> Delete(int id);
 }

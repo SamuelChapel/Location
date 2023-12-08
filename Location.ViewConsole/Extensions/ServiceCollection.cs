@@ -1,9 +1,9 @@
 ﻿using Location.Business;
 using Location.Business.Contracts;
 using Location.Controllers;
-using Location.Repository.Contracts;
+using Location.Repository.Contracts.Repositories;
 using Location.Repository.Repositories;
-using Location.Repository.Services.SqlCommandHandler;
+using Location.Repository.Services;
 using System.Data.SqlClient;
 using Unity;
 
@@ -19,7 +19,7 @@ public static class ServiceCollection
 
         container.RegisterType<IClientRepository, ClientRepositoryADO>();
         container.RegisterType<ISqlCommandHandler<SqlCommand, int>, SqlCommandNonQueryHandler>();
-        container.RegisterType<ISqlCommandHandler<SqlCommand, SqlDataReader>, SqlCommandReaderHandler>();
+        container.RegisterType<ISqlCommandHandler<SqlCommand, SqlDataReader>, SqlCommandHandler>();
         return container;
     }
 }
