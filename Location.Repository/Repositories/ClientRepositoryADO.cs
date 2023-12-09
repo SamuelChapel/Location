@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using Location.Entities;
 using Location.Repository.Contracts;
+using Location.Repository.ObjectExtensions;
 using Location.Repository.Services;
 
 namespace Location.Repository.Repositories;
@@ -33,8 +34,8 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 	{
 		var command = new SqlCommand("insert into CLIENT VALUES(@lastName, @firstName, @birthDate, @address, @postalCode, @city)");
 
-		command.Parameters.AddWithValue("lastName", client.Nom);
-		command.Parameters.AddWithValue("firstName", client.Prenom);
+		command.Parameters.AddWithValue("lastName", client.Nom.ToUpper());
+		command.Parameters.AddWithValue("firstName", client.Prenom.ToCapitalize());
 		command.Parameters.AddWithValue("birthDate", client.Date_Naissance);
 		command.Parameters.AddWithValue("address", client.Adresse);
 		command.Parameters.AddWithValue("postalCode", client.Code_Postal);
@@ -46,8 +47,8 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 	public async Task<int> Update(Client client)
 	{
 		var command = new SqlCommand("UPDATE client SET NOM = @lastName, PRENOM = @firstName, DATE_NAISSANCE = @birthDate, ADRESSE = @address, CODE_POSTAL = @postalCode, VILLE = @city WHERE Id = @id");
-		command.Parameters.AddWithValue("lastName", client.Nom);
-		command.Parameters.AddWithValue("firstName", client.Prenom);
+		command.Parameters.AddWithValue("lastName", client.Nom.ToUpper());
+		command.Parameters.AddWithValue("firstName", client.Prenom.ToCapitalize());
 		command.Parameters.AddWithValue("birthDate", client.Date_Naissance);
 		command.Parameters.AddWithValue("address", client.Adresse);
 		command.Parameters.AddWithValue("postalCode", client.Code_Postal);

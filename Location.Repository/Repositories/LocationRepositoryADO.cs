@@ -42,7 +42,7 @@ public class LocationRepositoryADO(SqlCommandHandler sqlCommandHandler) : ILocat
 		var command = new SqlCommand("insert into LOCATION VALUES(@Id_Client, @id_vehicle, @distance, @startDate, @endDate)");
 
 		command.Parameters.AddWithValue("Id_Client", location.Id_Client);
-		command.Parameters.AddWithValue("id_vehicle", location.Id_Vehicle);
+		command.Parameters.AddWithValue("id_vehicle", location.Id_Vehicule);
 		command.Parameters.AddWithValue("distance", location.Nb_Km);
 		command.Parameters.AddWithValue("startDate", location.Date_Debut);
 		command.Parameters.AddWithValue("endDate", location.Date_Fin);
@@ -55,7 +55,7 @@ public class LocationRepositoryADO(SqlCommandHandler sqlCommandHandler) : ILocat
 		var command = new SqlCommand("UPDATE LOCATION SET Id_Client = @Id_Client, Id_Vehicle = @id_vehicle, Nb_Km = @distance, DATE_DEBUT = @startDate, DATE_FIN = @endDate WHERE Id = @id");
 
 		command.Parameters.AddWithValue("Id_Client", location.Id_Client);
-		command.Parameters.AddWithValue("id_vehicle", location.Id_Vehicle);
+		command.Parameters.AddWithValue("id_vehicle", location.Id_Vehicule);
 		command.Parameters.AddWithValue("distance", location.Nb_Km);
 		command.Parameters.AddWithValue("startDate", location.Date_Debut);
 		command.Parameters.AddWithValue("endDate", location.Date_Fin);

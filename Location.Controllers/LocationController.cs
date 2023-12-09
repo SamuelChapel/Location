@@ -59,7 +59,7 @@ public class LocationController(ILocationService locationService)
 		var location = new Entities.Location()
 		{
 			Id_Client = id_Client,
-			Id_Vehicle = id_Vehicule,
+			Id_Vehicule = id_Vehicule,
 			Nb_Km = distance,
 			Date_Debut = startDate,
 			Date_Fin = endDate
@@ -90,7 +90,7 @@ public class LocationController(ILocationService locationService)
 		{
 			Id = id,
 			Id_Client = id_Client,
-			Id_Vehicle = id_Vehicule,
+			Id_Vehicule = id_Vehicule,
 			Nb_Km = distance,
 			Date_Debut = startDate,
 			Date_Fin = endDate

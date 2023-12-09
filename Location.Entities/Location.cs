@@ -6,7 +6,7 @@ public class Location : IEntityBase<int>
 {
 	public int Id { get; init; }
 	public int? Id_Client { get; set; }
-	public int? Id_Vehicle { get; set; }
+	public int? Id_Vehicule { get; set; }
 	public int Nb_Km { get; set; }
 	public DateTime Date_Debut { get; set; }
 	public DateTime? Date_Fin { get; set; }
