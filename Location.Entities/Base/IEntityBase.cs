@@ -1,4 +1,4 @@
-﻿namespace Location.Entities;
+﻿namespace Location.Entities.Base;
 
 public interface IEntityBase<TId>
 {

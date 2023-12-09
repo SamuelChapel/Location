@@ -1,15 +1,15 @@
-﻿using Location.Entities;
+﻿using Location.Entities.Base;
 
-namespace Location.Repository.Contracts.Repositories.Base;
+namespace Location.Repository.Contracts.Base;
 
-public interface IGenericReadRepository<TEntity, Tid> where TEntity : IEntityBase<Tid> where Tid : struct
+public interface IGenericReadRepository<TEntity, TId> where TEntity : IEntityBase<TId>
 {
 	/// <summary>
 	/// Get a <typeparamref name="TEntity"/> by his id 
 	/// </summary>
 	/// <param name="id"> <typeparamref name="Tid"/> of the <typeparamref name="TEntity"/> id to find</param>
 	/// <returns>returns a <typeparamref name="Tid"/> of the <typeparamref name="TEntity"/> id</returns>
-	Task<TEntity> GetById(Tid id);
+	Task<TEntity?> GetById(TId id);
 
 	/// <summary>
 	/// Method for getting all the <typeparamref name="TEntity"/> 

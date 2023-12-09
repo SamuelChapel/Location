@@ -1,4 +1,4 @@
-﻿using Location.Business.Contracts;
+﻿using Location.Business.Contracts.Services;
 using Location.Entities;
 
 namespace Location.Controllers;
@@ -13,7 +13,7 @@ public class ClientController(IClientService clientService)
 		{
 			var client = await _clientService.GetById(id);
 
-			return client.ToString();
+			return client?.ToString() ?? $"Client avec l'id {id} non trouvé";
 		}
 		catch (Exception ex)
 		{
@@ -45,12 +45,12 @@ public class ClientController(IClientService clientService)
 	{
 		var client = new Client
 		{
-			PostalCode = postalCode,
-			LastName = lastName,
-			FirstName = firstName,
-			City = city,
-			BirthDate = birthDate,
-			Address = address,
+			Code_Postal = postalCode,
+			Nom = lastName,
+			Prenom = firstName,
+			Ville = city,
+			Date_Naissance = birthDate,
+			Adresse = address,
 		};
 
 		try
@@ -65,7 +65,9 @@ public class ClientController(IClientService clientService)
 		}
 	}
 
-	public async Task<string> UpdateClient(string firstName,
+	public async Task<string> UpdateClient(
+		int id,
+		string firstName,
 		string lastName,
 		DateTime birthDate,
 		string address,
@@ -74,12 +76,13 @@ public class ClientController(IClientService clientService)
 	{
 		var client = new Client
 		{
-			PostalCode = postalCode,
-			LastName = lastName,
-			FirstName = firstName,
-			City = city,
-			BirthDate = birthDate,
-			Address = address,
+			Id = id,
+			Code_Postal = postalCode,
+			Nom = lastName,
+			Prenom = firstName,
+			Ville = city,
+			Date_Naissance = birthDate,
+			Adresse = address,
 		};
 
 		try

@@ -9,13 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location.Entities", "Locati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location.Controllers", "Location.Controllers\Location.Controllers.csproj", "{BA9520C1-C8C0-43CB-A302-E46B5C8A8B94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Location.Business", "Location.Business\Location.Business.csproj", "{652B6E79-78A1-48EF-87E5-C5571A60560B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location.Business", "Location.Business\Location.Business.csproj", "{652B6E79-78A1-48EF-87E5-C5571A60560B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Location.Repository.Contracts", "Location.Repository.Contracts\Location.Repository.Contracts.csproj", "{B8296B2D-FF34-444C-9E81-3B51228DD7BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location.Repository.Contracts", "Location.Repository.Contracts\Location.Repository.Contracts.csproj", "{B8296B2D-FF34-444C-9E81-3B51228DD7BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Location.Repository", "Location.Repository\Location.Repository.csproj", "{27DF4261-EDA7-4FF3-A939-55620073CD40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location.Repository", "Location.Repository\Location.Repository.csproj", "{27DF4261-EDA7-4FF3-A939-55620073CD40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Location.Business.Contracts", "Location.Business.Contracts\Location.Business.Contracts.csproj", "{BC7398E1-AED1-4112-86C3-98C41212E4CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Location.Business.Contracts", "Location.Business.Contracts\Location.Business.Contracts.csproj", "{BC7398E1-AED1-4112-86C3-98C41212E4CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_NeutralResourcesLanguage = fr-FR
 		SolutionGuid = {61237CC5-49E5-4025-A51C-DBF8F05660AC}
 	EndGlobalSection
 EndGlobal

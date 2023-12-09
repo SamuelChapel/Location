@@ -1,12 +1,18 @@
-﻿namespace Location.Entities;
+﻿using Location.Entities.Base;
 
-public class Location(int id,
-                      int distance,
-                      DateTime startDate,
-                      DateTime endDate) : IEntityBase<int>
+namespace Location.Entities;
+
+public class Location : IEntityBase<int>
 {
-    public int Id { get; init; } = id;
-    public int Distance { get; set; } = distance;
-    public DateTime StartDate { get; set; } = startDate;
-    public DateTime EndDate { get; set; } = endDate;
+	public int Id { get; init; }
+	public int? Id_Client { get; set; }
+	public int? Id_Vehicle { get; set; }
+	public int Nb_Km { get; set; }
+	public DateTime Date_Debut { get; set; }
+	public DateTime? Date_Fin { get; set; }
+
+	public override string ToString()
+	{
+		return $"{Id,3}\t{Nb_Km,-10} {Date_Debut.ToShortDateString(),-15} {Date_Fin?.ToShortDateString(),-15}";
+	}
 }
