@@ -3,6 +3,6 @@ using Location.Repository.Contracts.Base;
 
 namespace Location.Repository.Contracts;
 
-public interface IClientRepository : IGenericReadRepository<Client, int>, IGenericWriteRepository<Client, int>
+public interface IClientRepository : IReadRepository<Client, int>, IWriteRepository<Client, int>
 {
 }

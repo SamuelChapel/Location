@@ -2,9 +2,9 @@
 
 namespace Location.Entities;
 
-public class Client : IEntityBase<int>
+public class Client : IEntity<int>
 {
-	public int Id { get; init; }
+	public int Id { get; set; }
 	public string Nom { get; set; } = null!;
 	public string Prenom { get; set; } = null!;
 	public DateTime Date_Naissance { get; set; } = DateTime.MinValue;

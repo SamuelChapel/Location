@@ -3,6 +3,6 @@ using Location.Entities;
 
 namespace Location.Business.Contracts.Services;
 
-public interface IClientService : IGenericReadService<Client, int>, IGenericWriteService<Client, int>
+public interface IClientService : IReadService<Client, int>, IWriteService<Client, int>
 {
 }

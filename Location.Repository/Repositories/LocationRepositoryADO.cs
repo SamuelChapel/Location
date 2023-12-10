@@ -13,7 +13,7 @@ public class LocationRepositoryADO(SqlCommandHandler sqlCommandHandler) : ILocat
 		var command = new SqlCommand("SELECT * FROM LOCATION WHERE Id = @id");
 		command.Parameters.AddWithValue("Id", id);
 
-		var location = await _sqlCommandHandler.ExecuteReaderAsync<Entities.Location>(command);
+		var location = await _sqlCommandHandler.ExecuteReaderAndMapAsync<Entities.Location>(command);
 
 		return location.FirstOrDefault();
 	}
@@ -23,7 +23,7 @@ public class LocationRepositoryADO(SqlCommandHandler sqlCommandHandler) : ILocat
 		var command = new SqlCommand("SELECT * FROM LOCATION WHERE Id_Client = @IdClient");
 		command.Parameters.AddWithValue("IdClient", clientId);
 
-		var locations = await _sqlCommandHandler.ExecuteReaderAsync<Entities.Location>(command);
+		var locations = await _sqlCommandHandler.ExecuteReaderAndMapAsync<Entities.Location>(command);
 
 		return locations;
 	}
@@ -32,7 +32,7 @@ public class LocationRepositoryADO(SqlCommandHandler sqlCommandHandler) : ILocat
 	{
 		var command = new SqlCommand("SELECT * FROM LOCATION");
 
-		var locations = await _sqlCommandHandler.ExecuteReaderAsync<Entities.Location>(command);
+		var locations = await _sqlCommandHandler.ExecuteReaderAndMapAsync<Entities.Location>(command);
 
 		return locations;
 	}

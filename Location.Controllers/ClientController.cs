@@ -103,7 +103,8 @@ public class ClientController(IClientService clientService)
 		{
 			var result = await _clientService.Delete(id);
 
-			return result > 0 ? $"Le client à bien été supprimé" : "Erreur : client non supprimé";
+			return result == 1 ? $"Le client à bien été supprimé." :
+				result > 1 ? $"Le client à bien été supprimé ainsi que ses {result - 1} locations." : "Erreur : client non supprimé";
 		}
 		catch (Exception ex)
 		{

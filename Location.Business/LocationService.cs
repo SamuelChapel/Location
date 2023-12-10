@@ -31,6 +31,9 @@ public class LocationService(ILocationRepository locationRepository, IClientServ
 		if (location.Date_Debut < DateTime.Today || location.Date_Debut > location.Date_Fin)
 			throw new InvalidDateLocationException();
 
+		if (location.Id_Client.HasValue)
+			await _clientService.GetById(location.Id_Client.Value);
+
 		return await _locationRepository.Create(location);
 	}
 
@@ -39,7 +42,10 @@ public class LocationService(ILocationRepository locationRepository, IClientServ
 		if (location.Date_Debut < DateTime.Today || location.Date_Debut > location.Date_Fin)
 			throw new InvalidDateLocationException();
 
-		_ = GetById(location.Id);
+		await GetById(location.Id);
+
+		if (location.Id_Client.HasValue)
+			await _clientService.GetById(location.Id_Client.Value);
 
 		return await _locationRepository.Update(location);
 	}

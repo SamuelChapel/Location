@@ -2,7 +2,7 @@
 
 namespace Location.Repository.Contracts.Base;
 
-public interface IGenericReadRepository<TEntity, TId> where TEntity : IEntityBase<TId>
+public interface IReadRepository<TEntity, TId> where TEntity : IEntity<TId>
 {
 	/// <summary>
 	/// Get a <typeparamref name="TEntity"/> by his id 

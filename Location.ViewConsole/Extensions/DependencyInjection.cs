@@ -7,10 +7,13 @@ using Unity;
 
 namespace Location.ViewConsole.Extensions;
 
-public static class ServiceCollection
+public static class DependencyInjection
 {
 	public static IUnityContainer AddServices(this IUnityContainer container)
 	{
+		container.RegisterType<LocationConsole>();
+		container.RegisterType<ClientConsole>();
+
 		container.RegisterType<ClientController>();
 		container.RegisterType<LocationController>();
 

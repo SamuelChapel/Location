@@ -79,6 +79,33 @@ namespace Location.ViewConsole.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Le client avec l&apos;id.
+        /// </summary>
+        internal static string ClientNonExistent {
+            get {
+                return ResourceManager.GetString("ClientNonExistent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voulez-vous vraiment supprimer ce client ainsi que ces locations de façon permanente ?.
+        /// </summary>
+        internal static string ConfirmDeleteClient {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Voulez-vous vraiment supprimer cette location de façon permanente ?.
+        /// </summary>
+        internal static string ConfirmDeleteLocation {
+            get {
+                return ResourceManager.GetString("ConfirmDeleteLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Supprimer un client.
         /// </summary>
         internal static string DeleteClient {
@@ -201,6 +228,15 @@ namespace Location.ViewConsole.Properties {
         internal static string EnterLastName {
             get {
                 return ResourceManager.GetString("EnterLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entrez l&apos;id de la location.
+        /// </summary>
+        internal static string EnterLocationId {
+            get {
+                return ResourceManager.GetString("EnterLocationId", resourceCulture);
             }
         }
         

@@ -207,4 +207,16 @@
   <data name="EnterVehicleId" xml:space="preserve">
     <value>Entrez l'id du véhicule</value>
   </data>
+  <data name="ConfirmDeleteClient" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer ce client ainsi que ces locations de façon permanente ?</value>
+  </data>
+  <data name="ConfirmDeleteLocation" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer cette location de façon permanente ?</value>
+  </data>
+  <data name="ClientNonExistent" xml:space="preserve">
+    <value>Le client avec l'id</value>
+  </data>
+  <data name="EnterLocationId" xml:space="preserve">
+    <value>Entrez l'id de la location</value>
+  </data>
 </root>

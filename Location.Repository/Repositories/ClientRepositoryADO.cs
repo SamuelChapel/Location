@@ -16,7 +16,7 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 		var command = new SqlCommand("SELECT * FROM CLIENT WHERE Id = @id");
 		command.Parameters.AddWithValue("Id", id);
 
-		var client = await _sqlCommandHandler.ExecuteReaderAsync<Client>(command);
+		var client = await _sqlCommandHandler.ExecuteReaderAndMapAsync<Client>(command);
 
 		return client.FirstOrDefault();
 	}
@@ -25,7 +25,7 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 	{
 		var command = new SqlCommand("SELECT * FROM CLIENT");
 
-		var clients = await _sqlCommandHandler.ExecuteReaderAsync<Client>(command);
+		var clients = await _sqlCommandHandler.ExecuteReaderAndMapAsync<Client>(command);
 
 		return clients;
 	}
@@ -60,9 +60,11 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 
 	public async Task<int> Delete(int id)
 	{
-		var command = new SqlCommand("delete from CLIENT where Id = @id");
-		command.Parameters.AddWithValue("Id", id);
+		var commandLocation = new SqlCommand("delete from LOCATION where Id_Client = @id");
+		commandLocation.Parameters.AddWithValue("id", id);
+		var commandClient = new SqlCommand("delete from CLIENT where Id = @id");
+		commandClient.Parameters.AddWithValue("id", id);
 
-		return await _sqlCommandHandler.ExecuteNonQueryAsync(command);
+		return await _sqlCommandHandler.ExecuteTransactionAsync(commandLocation, commandClient);
 	}
 }

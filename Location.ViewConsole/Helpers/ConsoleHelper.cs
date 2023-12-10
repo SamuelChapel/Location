@@ -47,7 +47,7 @@ public static class ConsoleHelper
 
 	public static int DisplayMenu(string title, params string[] options)
 	{
-		WriteLine("----- " + title + " -----\n");
+		WriteLine("\n----- " + title + " -----\n");
 		for (int i = 0; i < options.Length; i++)
 		{
 			WriteLine($"  {i + 1,2} : {options[i]}");
@@ -71,4 +71,10 @@ public static class ConsoleHelper
 		Write("\n" + Resources.WaitKeyMessage);
 		ReadKey();
 	}
+
+	public static bool ConfirmChoice(string title)
+		=> 1 == DisplayMenu(
+			title,
+			Resources.Yes,
+			Resources.No);
 }

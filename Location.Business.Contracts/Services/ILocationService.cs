@@ -2,7 +2,7 @@
 
 namespace Location.Business.Contracts.Services;
 
-public interface ILocationService : IGenericReadService<Entities.Location, int>, IGenericWriteService<Entities.Location, int>
+public interface ILocationService : IReadService<Entities.Location, int>, IWriteService<Entities.Location, int>
 {
 	Task<IEnumerable<Entities.Location>> GetByClientId(int id);
 }
