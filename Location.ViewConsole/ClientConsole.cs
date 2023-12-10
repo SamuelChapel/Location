@@ -73,9 +73,50 @@ public class ClientConsole(ClientController clientController, LocationController
 		DisplayWaitKey();
 	}
 
+	public async Task SearchClient()
+	{
+		int choice;
+		do
+		{
+			Clear();
+
+			choice = DisplayMenu(
+			Resources.SearchClientTitle,
+			Resources.SearchClientById,
+			Resources.SearchClientOtherFields
+			);
+
+			switch (choice)
+			{
+				case 1:
+					await GetClientById();
+					break;
+				case 2:
+					await FindClients();
+					break;
+				default:
+					break;
+			}
+		} while (choice != 0);
+	}
+
+	private async Task FindClients()
+	{
+		var searchString = GetStringFromConsole();
+
+		var clients = await clientController.FindClients(searchString);
+
+		clients.ForEach(WriteLine);
+
+		if (clients.Count == 0)
+			WriteLine(Resources.NoClients);
+
+		DisplayWaitKey();
+	}
+
 	public async Task GetClientById()
 	{
-		var id = GetIntFromConsole();
+		var id = GetIntFromConsole(Resources.EnterClientId);
 
 		var result = await clientController.GetById(id);
 
@@ -87,14 +128,13 @@ public class ClientConsole(ClientController clientController, LocationController
 			return;
 
 		int choice = DisplayMenu(
-			Resources.MenuClient,
+			Resources.DisplayClientLocations,
 			Resources.Yes,
 			Resources.No);
 
 		switch (choice)
 		{
 			case 1:
-
 				await DisplayLocationsForClient(clientId);
 				break;
 			case 2:

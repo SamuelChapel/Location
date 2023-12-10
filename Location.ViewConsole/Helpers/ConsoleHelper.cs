@@ -59,8 +59,13 @@ public static class ConsoleHelper
 		do
 		{
 			var input = ReadLine();
+
 			if (!int.TryParse(input, out choice))
 				choice = -1;
+
+			if (choice == -1 || choice < 0 || choice > options.Length)
+				WriteLine(Resources.InvalidChoice);
+
 		} while (choice == -1 || choice < 0 || choice > options.Length);
 
 		return choice;

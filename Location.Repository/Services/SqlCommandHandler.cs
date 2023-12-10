@@ -64,7 +64,7 @@ public class SqlCommandHandler
 	/// Execute a non query command
 	/// </summary>
 	/// <param name="command">The command to execute</param>
-	/// <returns>The number of column modified</returns>
+	/// <returns>The number of rows affected</returns>
 	/// <exception cref="System.Data.Common.DbException"></exception>
 	public async Task<int> ExecuteNonQueryAsync(SqlCommand command)
 	{
@@ -80,7 +80,7 @@ public class SqlCommandHandler
 	/// Execute multiple <see cref="SqlCommand"/> in a transaction
 	/// </summary>
 	/// <param name="commands">The <see cref="SqlCommand"/> <see cref="Array"/> to execute</param>
-	/// <returns>The number of rows deleted</returns>
+	/// <returns>The number of rows affected</returns>
 	public async Task<int> ExecuteTransactionAsync(params SqlCommand[] commands)
 	{
 		using var sqlConnection = new SqlConnection(_connexionString);
@@ -91,17 +91,17 @@ public class SqlCommandHandler
 
 		try
 		{
-			var rowsDeleted = 0;
+			var rowsAffected = 0;
 
 			foreach (SqlCommand command in commands)
 			{
 				command.Connection = sqlConnection;
 				command.Transaction = transaction;
-				rowsDeleted += await command.ExecuteNonQueryAsync();
+				rowsAffected += await command.ExecuteNonQueryAsync();
 			}
 
 			transaction.Commit();
-			return rowsDeleted;
+			return rowsAffected;
 		}
 		catch (Exception)
 		{

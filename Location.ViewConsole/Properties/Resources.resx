@@ -126,8 +126,8 @@
   <data name="UpdateClient" xml:space="preserve">
     <value>Mettre à jour un client</value>
   </data>
-  <data name="DisplayClientById" xml:space="preserve">
-    <value>Afficher un client par son Id</value>
+  <data name="SearchClient" xml:space="preserve">
+    <value>Rechercher des clients</value>
   </data>
   <data name="DisplayAllClients" xml:space="preserve">
     <value>Afficher tous les clients</value>
@@ -168,7 +168,7 @@
   <data name="DeleteClient" xml:space="preserve">
     <value>Supprimer un client</value>
   </data>
-  <data name="MenuClient" xml:space="preserve">
+  <data name="DisplayClientLocations" xml:space="preserve">
     <value>Voulez-vous afficher ses locations ?</value>
   </data>
   <data name="Yes" xml:space="preserve">
@@ -218,5 +218,17 @@
   </data>
   <data name="EnterLocationId" xml:space="preserve">
     <value>Entrez l'id de la location</value>
+  </data>
+  <data name="SearchClientById" xml:space="preserve">
+    <value>Par son Id</value>
+  </data>
+  <data name="SearchClientTitle" xml:space="preserve">
+    <value>Trouver des clients</value>
+  </data>
+  <data name="SearchClientOtherFields" xml:space="preserve">
+    <value>Sur les autres critères (prénom, nom, adresse, code postal, ville)</value>
+  </data>
+  <data name="NoClients" xml:space="preserve">
+    <value>Aucun client trouvé avec ce critère!</value>
   </data>
 </root>

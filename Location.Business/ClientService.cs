@@ -19,6 +19,11 @@ public class ClientService(IClientRepository clientRepository) : IClientService
 		return await _clientRepository.GetAll();
 	}
 
+	public Task<IEnumerable<Client>> FindClients(string searchString)
+	{
+		return _clientRepository.FindClients(searchString);
+	}
+
 	public async Task<int> Create(Client client)
 	{
 		return await _clientRepository.Create(client);

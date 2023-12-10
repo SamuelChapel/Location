@@ -35,6 +35,21 @@ public class ClientController(IClientService clientService)
 		}
 	}
 
+	public async Task<List<string>> FindClients(string searchString)
+	{
+		try
+		{
+			var clients = await _clientService.FindClients(searchString);
+
+			return clients.Select(c => c.ToString()).ToList();
+
+		}
+		catch (Exception ex)
+		{
+			return [ex.Message];
+		}
+	}
+
 	public async Task<string> CreateClient(
 		string firstName,
 		string lastName,

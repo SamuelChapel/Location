@@ -30,6 +30,22 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 		return clients;
 	}
 
+	public async Task<IEnumerable<Client>> FindClients(string searchString)
+	{
+		var command = new SqlCommand("SELECT * FROM CLIENT " +
+			"WHERE Nom LIKE '%' + @searchString + '%'" +
+			"OR Prenom LIKE '%' + @searchString + '%'" +
+			"OR Adresse LIKE '%' + @searchString + '%'" +
+			"OR Code_Postal LIKE '%' + @searchString + '%'" +
+			"OR Ville LIKE '%' + @searchString + '%'"
+			);
+		command.Parameters.AddWithValue("searchString", searchString);
+
+		var clients = await _sqlCommandHandler.ExecuteReaderAndMapAsync<Client>(command);
+
+		return clients;
+	}
+
 	public async Task<int> Create(Client client)
 	{
 		var command = new SqlCommand("insert into CLIENT VALUES(@lastName, @firstName, @birthDate, @address, @postalCode, @city)");
@@ -62,6 +78,7 @@ public class ClientRepositoryADO(SqlCommandHandler sqlCommandHandler)
 	{
 		var commandLocation = new SqlCommand("delete from LOCATION where Id_Client = @id");
 		commandLocation.Parameters.AddWithValue("id", id);
+
 		var commandClient = new SqlCommand("delete from CLIENT where Id = @id");
 		commandClient.Parameters.AddWithValue("id", id);
 

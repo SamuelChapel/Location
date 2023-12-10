@@ -19,9 +19,10 @@ public class ClientServiceTests
 		// Arrange
 		var client = ClientBuilder.AClient.WithId(id).Build();
 		_clientRepositoryMock.Setup(cr => cr.GetById(id)).ReturnsAsync(client);
+		var clientService = new ClientService(_clientRepositoryMock.Object);
 
 		// Act
-		var result = await new ClientService(_clientRepositoryMock.Object).GetById(id);
+		var result = await clientService.GetById(id);
 
 		// Assert
 		Assert.Equal(id, result.Id);
@@ -53,9 +54,10 @@ public class ClientServiceTests
 			.Setup(cr => cr.GetAll())
 			.ReturnsAsync(Enumerable.Range(0, clientCount)
 				.Select(i => ClientBuilder.AClient.WithId(i).Build()));
+		var clientService = new ClientService(_clientRepositoryMock.Object);
 
 		// Act
-		var clients = (await new ClientService(_clientRepositoryMock.Object).GetAll()).ToList();
+		var clients = (await clientService.GetAll()).ToList();
 
 		// Assert
 		Assert.Equal(clientCount, clients.Count);

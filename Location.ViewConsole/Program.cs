@@ -1,5 +1,4 @@
-﻿using Location.Controllers;
-using Location.ViewConsole;
+﻿using Location.ViewConsole;
 using Location.ViewConsole.Extensions;
 using Location.ViewConsole.Properties;
 using Unity;
@@ -7,9 +6,6 @@ using static System.Console;
 using static Location.ViewConsole.Helpers.ConsoleHelper;
 
 IUnityContainer unitycontainer = new UnityContainer().AddServices();
-var clientController = unitycontainer.Resolve<ClientController>();
-
-var locationController = unitycontainer.Resolve<LocationController>();
 
 var locationConsole = unitycontainer.Resolve<LocationConsole>();
 var clientConsole = unitycontainer.Resolve<ClientConsole>();
@@ -24,7 +20,7 @@ do
 		Resources.AddClient,
 		Resources.UpdateClient,
 		Resources.DeleteClient,
-		Resources.DisplayClientById,
+		Resources.SearchClient,
 		Resources.DisplayAllClients,
 		Resources.AddLocation,
 		Resources.UpdateLocation,
@@ -46,7 +42,7 @@ do
 			await clientConsole.DeleteClient();
 			break;
 		case 4:
-			await clientConsole.GetClientById();
+			await clientConsole.SearchClient();
 			break;
 		case 5:
 			await clientConsole.DisplayAllClients();

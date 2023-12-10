@@ -142,11 +142,11 @@ namespace Location.ViewConsole.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Afficher un client par son Id.
+        ///   Looks up a localized string similar to Voulez-vous afficher ses locations ?.
         /// </summary>
-        internal static string DisplayClientById {
+        internal static string DisplayClientLocations {
             get {
-                return ResourceManager.GetString("DisplayClientById", resourceCulture);
+                return ResourceManager.GetString("DisplayClientLocations", resourceCulture);
             }
         }
         
@@ -295,20 +295,20 @@ namespace Location.ViewConsole.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Voulez-vous afficher ses locations ?.
-        /// </summary>
-        internal static string MenuClient {
-            get {
-                return ResourceManager.GetString("MenuClient", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Non.
         /// </summary>
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aucun client trouvé avec ce critère!.
+        /// </summary>
+        internal static string NoClients {
+            get {
+                return ResourceManager.GetString("NoClients", resourceCulture);
             }
         }
         
@@ -327,6 +327,42 @@ namespace Location.ViewConsole.Properties {
         internal static string QuitMessage {
             get {
                 return ResourceManager.GetString("QuitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rechercher des clients.
+        /// </summary>
+        internal static string SearchClient {
+            get {
+                return ResourceManager.GetString("SearchClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Par son Id.
+        /// </summary>
+        internal static string SearchClientById {
+            get {
+                return ResourceManager.GetString("SearchClientById", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sur les autres critères (prénom, nom, adresse, code postal, ville).
+        /// </summary>
+        internal static string SearchClientOtherFields {
+            get {
+                return ResourceManager.GetString("SearchClientOtherFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trouver des clients.
+        /// </summary>
+        internal static string SearchClientTitle {
+            get {
+                return ResourceManager.GetString("SearchClientTitle", resourceCulture);
             }
         }
         
