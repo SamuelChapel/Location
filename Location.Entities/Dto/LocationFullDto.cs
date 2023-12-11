@@ -1,4 +1,6 @@
-﻿namespace Location.Entities.Dto;
+﻿using Location.Entities.Entities;
+
+namespace Location.Entities.Dto;
 
 public record struct LocationFullDto(
 	int Id,

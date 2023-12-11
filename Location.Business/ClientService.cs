@@ -1,6 +1,6 @@
 ﻿using Location.Business.Contracts.Exceptions;
 using Location.Business.Contracts.Services;
-using Location.Entities;
+using Location.Entities.Entities;
 using Location.Repository.Contracts;
 
 namespace Location.Business;

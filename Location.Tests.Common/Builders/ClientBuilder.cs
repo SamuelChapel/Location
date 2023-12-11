@@ -1,4 +1,4 @@
-﻿using Location.Entities;
+﻿using Location.Entities.Entities;
 
 namespace Location.Tests.Common.Builders;
 

@@ -1,7 +1,7 @@
 ﻿global using Xunit;
 using Location.Business;
 using Location.Business.Contracts.Exceptions;
-using Location.Entities;
+using Location.Entities.Entities;
 using Location.Repository.Contracts;
 using Location.Tests.Common.Builders;
 using Moq;

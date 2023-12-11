@@ -5,81 +5,81 @@ namespace Location.ViewConsole.Helpers;
 
 public static class ConsoleHelper
 {
-	public static string GetStringFromConsole(string label = "Entrez la valeur")
-	{
-		Write(label + " : ");
-		var input = ReadLine();
+    public static string GetStringFromConsole(string label = "Entrez la valeur")
+    {
+        Write(label + " : ");
+        var input = ReadLine();
 
-		while (string.IsNullOrWhiteSpace(input))
-		{
-			WriteLine("Entrée incorrecte, veuilllez réessayer");
-			input = ReadLine();
-		}
+        while (string.IsNullOrWhiteSpace(input))
+        {
+            WriteLine("Entrée incorrecte, veuilllez réessayer");
+            input = ReadLine();
+        }
 
-		return input;
-	}
+        return input;
+    }
 
-	public static int GetIntFromConsole(string label = "Entrez la valeur")
-	{
-		Write(label + " : ");
-		int inputNumber;
+    public static int GetIntFromConsole(string label = "Entrez la valeur")
+    {
+        Write(label + " : ");
+        int inputNumber;
 
-		while (!int.TryParse(ReadLine(), out inputNumber))
-		{
-			Write("Ce n'est pas un nombre, veuillez réessayer : ");
-		}
+        while (!int.TryParse(ReadLine(), out inputNumber))
+        {
+            Write("Ce n'est pas un nombre, veuillez réessayer : ");
+        }
 
-		return inputNumber;
-	}
+        return inputNumber;
+    }
 
-	public static DateTime GetDateFromConsole(string label = "Entrez la valeur")
-	{
-		Write(label + " : ");
-		DateTime inputDate;
+    public static DateTime GetDateFromConsole(string label = "Entrez la valeur")
+    {
+        Write(label + " : ");
+        DateTime inputDate;
 
-		while (!DateTime.TryParse(ReadLine(), out inputDate))
-		{
-			Write("Ce n'est pas une date, veuillez réessayer : ");
-		}
+        while (!DateTime.TryParse(ReadLine(), out inputDate))
+        {
+            Write("Ce n'est pas une date, veuillez réessayer : ");
+        }
 
-		return inputDate;
-	}
+        return inputDate;
+    }
 
-	public static int DisplayMenu(string title, params string[] options)
-	{
-		WriteLine("\n----- " + title + " -----\n");
-		for (int i = 0; i < options.Length; i++)
-		{
-			WriteLine($"  {i + 1,2} : {options[i]}");
-		}
+    public static int DisplayMenu(string title, params string[] options)
+    {
+        WriteLine("\n----- " + title + " -----\n");
+        for (int i = 0; i < options.Length; i++)
+        {
+            WriteLine($"  {i + 1,2} : {options[i]}");
+        }
 
-		WriteLine($" {Resources.QuitChoice,2}\n");
+        WriteLine($" {Resources.QuitChoice,2}\n");
 
-		int choice;
-		do
-		{
-			var input = ReadLine();
+        int choice;
+        do
+        {
+            var input = ReadLine();
 
-			if (!int.TryParse(input, out choice))
-				choice = -1;
+            if (!int.TryParse(input, out choice))
+                choice = -1;
 
-			if (choice == -1 || choice < 0 || choice > options.Length)
-				WriteLine(Resources.InvalidChoice);
+            if (choice == -1 || choice < 0 || choice > options.Length)
+                WriteLine(Resources.InvalidChoice);
 
-		} while (choice == -1 || choice < 0 || choice > options.Length);
+        } while (choice == -1 || choice < 0 || choice > options.Length);
 
-		return choice;
-	}
+        return choice;
+    }
 
-	public static void DisplayWaitKey()
-	{
-		Write("\n" + Resources.WaitKeyMessage);
-		ReadKey();
-	}
+    public static void DisplayWaitKey()
+    {
+        Write("\n" + Resources.WaitKeyMessage);
+        ReadKey();
+    }
 
-	public static bool ConfirmChoice(string title)
-		=> 1 == DisplayMenu(
-			title,
-			Resources.Yes,
-			Resources.No);
+    public static bool ConfirmChoice(string title)
+        => 1 == DisplayMenu(
+            title,
+            Resources.Yes,
+            Resources.No);
 }

@@ -1,5 +1,5 @@
 ﻿using Location.Business.Contracts.Services.Base;
-using Location.Entities;
+using Location.Entities.Entities;
 
 namespace Location.Business.Contracts.Services;
 

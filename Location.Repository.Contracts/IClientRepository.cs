@@ -1,4 +1,4 @@
-﻿using Location.Entities;
+﻿using Location.Entities.Entities;
 using Location.Repository.Contracts.Base;
 
 namespace Location.Repository.Contracts;
